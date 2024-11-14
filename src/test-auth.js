@@ -1,4 +1,4 @@
-const authenticateSalesforce = require('./auth');
+/*const authenticateSalesforce = require('./auth');
 
 export default async function handler(req, res) {
   try {
@@ -16,4 +16,15 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ message: "Salesforce integration failed", error: error.message });
   }
-}
+}*/
+// testAuth.js
+const { getAccessToken } = require('./auth');
+
+(async () => {
+    try {
+        const token = await getAccessToken();
+        console.log("Access Token:", token);
+    } catch (error) {
+        console.error("Error fetching access token:", error);
+    }
+})();

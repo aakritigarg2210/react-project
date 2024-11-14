@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+/*const fetch = require('node-fetch');
 async function authenticateSalesforce() {
   const response = await fetch(process.env.SALESFORCE_TOKEN_URL, {
     method: 'POST',
@@ -16,4 +16,19 @@ async function authenticateSalesforce() {
   return data.access_token;
 }
 
-module.exports = authenticateSalesforce;
+module.exports = authenticateSalesforce;*/
+
+
+const { SALESFORCE_CLIENT_ID, SALESFORCE_CLIENT_SECRET, SALESFORCE_USERNAME, SALESFORCE_PASSWORD, SALESFORCE_BASE_URL } = process.env;
+
+
+async function getAccessToken() {
+    console.log("SALESFORCE_CLIENT_ID:", SALESFORCE_CLIENT_ID); // Log for debugging
+    console.log("SALESFORCE_BASE_URL:", SALESFORCE_BASE_URL);
+
+   
+    return "dummy_access_token_for_testing";
+}
+
+module.exports = { getAccessToken };
+

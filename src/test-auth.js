@@ -18,13 +18,14 @@ export default async function handler(req, res) {
   }
 }*/
 // testAuth.js
-const { getAccessToken } = require('./auth');
+// api/testAuth.js
+const { getAccessToken } = require('../auth');
 
-(async () => {
+export default async function handler(req, res) {
     try {
         const token = await getAccessToken();
-        console.log("Access Token:", token);
+        res.status(200).json({ accessToken: token });
     } catch (error) {
-        console.error("Error fetching access token:", error);
+        res.status(500).json({ error: "Error fetching access token", details: error.message });
     }
-})();
+}
